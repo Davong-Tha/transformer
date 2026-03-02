@@ -4,8 +4,8 @@ A trasnformer implementation using pytorch. This is an encoder-decoder style tra
 # Table of Contents
 - [Repo Content](#repo-content)
 - [Key Features](#key-features)
-- [Lesson Learnt and Troubleshooting](#lesson-learnt-and-troubleshooting)
 - [Result](#result)
+- [Lesson Learnt and Troubleshooting](#lesson-learnt-and-troubleshooting)
 - [Limitation](#limitation)
 
 # Repo Content 
