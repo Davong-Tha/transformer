@@ -5,6 +5,13 @@ A trasnformer implementation using pytorch. This is an encoder-decoder style tra
 - encoder.py: consist of multi_headed_attention, linear layer, normalization layer and drop out layer. This is used to encode the global context of our input and pass it to the decoder.
 - decoder.py: consist of similar module to the decoder, however, its argument accept two mask: the padding mask for the decoder itself and the cross attention mask for the output of the encoder 
 - transfomer.py: an implementation of the overall transformer model. Consist of n stacks of encoder and decoder layer as well as function for training and prediction. 
+
+# Table of Contents
+- [Key Features](#key-features)
+- [Lesson Learnt and Troubleshooting](#lesson-learnt-and-troubleshooting)
+- [Result](#result)
+- [Limitation](#limitation)
+
 # Key Features
 need to direct people to result and lesson learnt with a link 
 
@@ -35,7 +42,7 @@ Due to the small dataset size, at the current validation loss value the model ac
 
 # Model Detail
 
-# lesson learnt and troubleshooting
+# Lesson Learnt and Troubleshooting
 ## tokinzer
 Initially single character tokenization was used, but because the training took slightly longer because the model have to learn from char to word to sentence level mapping, subword tokenization was used instead.
 
