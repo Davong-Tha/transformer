@@ -1,16 +1,18 @@
 # Summary 
 A trasnformer implementation using pytorch. This is an encoder-decoder style transformer-based language model trained on Twitter's post dataset. The goal is to predict the next tweet in a given thread using the previous tweet. The model achieve near perfect memorization of the test set due to small sized datatset used. 
+
+# Table of Contents
+- [Repo Content](#repo-content)
+- [Key Features](#key-features)
+- [Lesson Learnt and Troubleshooting](#lesson-learnt-and-troubleshooting)
+- [Result](#result)
+- [Limitation](#limitation)
+
 # Repo Content 
 - multi_headed_attention.py: an implementation of multi-headed attention mechanism with argument for passing in padding and casual attention mask. This is the foundation upon which the encoder and decoder module is built on. 
 - encoder.py: consist of multi_headed_attention, linear layer, normalization layer and drop out layer. This is used to encode the global context of our input and pass it to the decoder.
 - decoder.py: consist of similar module to the decoder, however, its argument accept two mask: the padding mask for the decoder itself and the cross attention mask for the output of the encoder 
 - transfomer.py: an implementation of the overall transformer model. Consist of n stacks of encoder and decoder layer as well as function for training and prediction. 
-
-# Table of Contents
-- [Key Features](#key-features)
-- [Lesson Learnt and Troubleshooting](#lesson-learnt-and-troubleshooting)
-- [Result](#result)
-- [Limitation](#limitation)
 
 # Key Features
 need to direct people to result and lesson learnt with a link 
