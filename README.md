@@ -46,6 +46,7 @@ The model was train on 8:2 train/validation split and converged after 100 epochs
 </td>
 </tr>
 </table>
+
 ## Generation quality 
 Due to the small dataset size, at the current validation loss value the model achieve perfect memorization of the validation. Some sample output is shown in the table below. 
 
