@@ -39,6 +39,13 @@ The dataset is a small collection of public tweet thread. There are multiple twe
 ## train and validation loss
 The model was train on 8:2 train/validation split and converged after 100 epochs. Train loss is higher than validation loss due to dropout and weight decay regularization.  
 ** insert loss graph here
+<table>
+<tr>
+<td align="center">
+<img src="asset/loss.jpg" width="400"/><br>
+</td>
+</tr>
+</table>
 ## Generation quality 
 Due to the small dataset size, at the current validation loss value the model achieve perfect memorization of the validation. Some sample output is shown in the table below. 
 
