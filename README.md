@@ -116,9 +116,9 @@ Initially single character tokenization was used, but because the training took 
 
 In subword tokenization, the dictionary size play a big role in training stability. a good rule of thumb is to choose the dictionary in such a way that make sense to the language structure we are modeling. for example, sweetness should tokenize to "sweet" and "ness"
 
-## cross attention mask 
+## cross attention mask mismatch
 *** insert cross attention here 
-The encoder and decoder is connected by a cross attention pathway. However, we are not model input reconstruction the sequence for the encoder and decoder would have different padding. Therefore we must ensure that we use the encoder mask for cross attention score and decoder mask for self attention score in the decoder. 
+The encoder and decoder is connected by a cross attention pathway. However, different sequence was used to train the encoder and decoder so the input padding is different. Therefore we must ensure that we use the encoder mask for cross attention score and decoder mask for self attention score in the decoder. 
 
 ## posterior collapse
 This model was built after I built Sketchrnn. One thing that had been bugging me is that they are both encoder-decoder style model but why do transformer doesn't suffer from psoteior collapse like sketchrnn. The key is how we define each model lose function. In sketchrnn, the loss function include a KL-divergence loss which the model can collapse immediately making the encoder output zero as a way to reduce the loss. In transformer, we only have cross entrophy loss so there was no pathway to cheat to begin with.
