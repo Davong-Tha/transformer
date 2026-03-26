@@ -14,8 +14,7 @@ A trasnformer implementation using pytorch. This is an encoder-decoder style tra
 - decoder.py: consist of similar module to the decoder, however, its argument accept two mask: the padding mask for the decoder itself and the cross attention mask for the output of the encoder 
 - transfomer.py: an implementation of the overall transformer model. Consist of n stacks of encoder and decoder layer as well as function for training and prediction. 
 
-# Key Features
-need to direct people to result and lesson learnt with a link 
+# Key Features 
 
 ## Triangular mask
 During the forward function inside multi_headed_attention.py, we produce an attention matrice which represent the "attention score" of one token to every other token. This "attention score" represent how closely related each token is to each other. However, we must ensure that the current token only have access to the token before it, not after. This ensure that the model can't see future context beforehand. To this extent, an upper traingular mask is used to invalidate the attention score of future token. In a nutshell, the attention score is set to -inf for any case token after the current token which ensure that it will output to zero after applying softmax function. 
@@ -38,7 +37,7 @@ The dataset is a small collection of public tweet thread. There are multiple twe
 
 ## train and validation loss
 The model was train on 8:2 train/validation split and converged after 100 epochs. Train loss is higher than validation loss due to dropout and weight decay regularization.  
-** insert loss graph here
+
 <table>
 <tr>
 <td align="center">
@@ -48,7 +47,7 @@ The model was train on 8:2 train/validation split and converged after 100 epochs
 </table>
 
 ## Generation quality 
-Due to the small dataset size, at the current validation loss value the model achieve perfect memorization of the validation. Some sample output is shown in the table below. 
+Due to the small dataset size, at the current validation loss value the model achieve perfect memorization of the validation. Some sample output is shown in the table below. The error part are highlighted. 
 <table>
 <tr>
 <td>
@@ -108,20 +107,19 @@ woah, if we did wager something, what would we have done?!
 </td>
 </tr>
 </table>
-# Model Detail
+
 
 # Lesson Learnt and Troubleshooting
-## tokinzer
+## tokenzer
 Initially single character tokenization was used, but because the training took slightly longer because the model have to learn from char to word to sentence level mapping, subword tokenization was used instead.
 
 In subword tokenization, the dictionary size play a big role in training stability. a good rule of thumb is to choose the dictionary in such a way that make sense to the language structure we are modeling. for example, sweetness should tokenize to "sweet" and "ness"
 
 ## cross attention mask mismatch
-*** insert cross attention here 
 The encoder and decoder is connected by a cross attention pathway. However, different sequence was used to train the encoder and decoder so the input padding is different. Therefore we must ensure that we use the encoder mask for cross attention score and decoder mask for self attention score in the decoder. 
 
 ## posterior collapse
-This model was built after I built Sketchrnn. One thing that had been bugging me is that they are both encoder-decoder style model but why do transformer doesn't suffer from psoteior collapse like sketchrnn. The key is how we define each model lose function. In sketchrnn, the loss function include a KL-divergence loss which the model can collapse immediately making the encoder output zero as a way to reduce the loss. In transformer, we only have cross entrophy loss so there was no pathway to cheat to begin with.
+This model was built after I built Sketchrnn. One thing that had been bugging me is that they are both encoder-decoder style model but why do transformer doesn't suffer from posterior collapse like sketchrnn. The key is how we define each model lose function. In sketchrnn, the loss function include a KL-divergence loss which the model can collapse immediately making the encoder output zero as a way to reduce the loss. In transformer, we only have cross entrophy loss so there was no pathway to cheat to begin with.
 
 # Limitation 
 This model was trained on tweet corpus so it primiarily learnt short form, plaform specific style. While it can memorize that predict the next tweet at near perfect accuracy, this does not translate long-form conherence, factual reliability or ability to follow instruction.
