@@ -49,7 +49,65 @@ The model was train on 8:2 train/validation split and converged after 100 epochs
 
 ## Generation quality 
 Due to the small dataset size, at the current validation loss value the model achieve perfect memorization of the validation. Some sample output is shown in the table below. 
+<table>
+<tr>
+<td>
+Input text
+</td>
+<td>
+Target Text
+</td>
+<td>
+Output Text
+</td>
+</tr>
+<tr>
+<td>
+six flags will indicate that expansion of holiday event should bring in new revenue, but trend of per cap spending drops shouldnt be ignored
+</td>
+<td>
+very real possibility that their business plan is beginning to hit a wall. expanding season passholder base has natural limits.
+</td>
+<td>
+very real possibility that their business plan is beginning to hit a wall. expanding season passholder base has natural limits.
+</td>
+</tr>
+<tr>
+<td>
+what is the pinnacle of artificial fruit? this is a debate i am for atm
+</td>
+<td>
+well i would say skittles but also starburst are up there
+</td>
+<td>
+well i would say skittles but also starburst are up there
+</td>
+</tr>
+<tr>
+<td>
+idkkk i think they win i dont know i think they'll win more than blazers
 
+</td>
+<td>
+idk actually about dame either bc i don't think the blazers or thunder will be seeded higher than 6
+
+</td>
+<td>
+idk actually about dame either bc i don't think the blazers or thunder will be <mark>seedededed</mark> higher than 6
+</td>
+</tr>
+ <tr>
+<td>
+woah, if we did wager something, what would we have done?!
+</td>
+<td>
+ dang! fantastic question. i guess we would have to agree to wait for the next one on 12/24, yeah?
+</td>
+<td>
+ dang! fantastic question. i guess we would have <mark>to agree to agree</mark> to wait for the next one on 12/24, yeah?
+</td>
+</tr>
+</table>
 # Model Detail
 
 # Lesson Learnt and Troubleshooting
